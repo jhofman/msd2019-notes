@@ -8,3 +8,4 @@
 auto
 revision.tex
 .latex*
+.DS_Store

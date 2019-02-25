@@ -56,9 +56,9 @@ Some examples of how R can be a bit unruly are as follows
 Where R shines its ability to go from raw data to results quickly and efficiently, allowing you to "ask more questions"
 \end{flushleft}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.6\textwidth]{data_analysis_cycle.png}
+    \includegraphics[width=.6\textwidth]{figures/data_analysis_cycle.png}
     \caption{The data analysis cycle}
     \label{fig:data_analysis_cycle}
 \end{figure}
@@ -103,9 +103,9 @@ The tidyverse itself is a collection of packages including
 
 \end{flushleft}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.65\textwidth]{tidy_table.PNG}
+    \includegraphics[width=.65\textwidth]{figures/tidy_table.PNG}
     \caption{A representation of a "tidy table"}
     \label{fig:tidy_table}
 \end{figure}
@@ -140,9 +140,9 @@ A example of how we can filter in the data set we are utilizing for our homework
 filter(trips, start\_station\_name == "Broadway \& E 14 St")
 \end{center}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{filter_trips_ex.png}
+    \includegraphics[width=.75\textwidth]{figures/filter_trips_ex.png}
     \caption{Example: Trips Filtered for trips that start on Broadway}
     \label{fig:filter_trips_ex}
 \end{figure}
@@ -166,9 +166,9 @@ The select function allows you to choose which rows you want to display or pass 
 select(trips, starttime, stoptime,start\_station\_name, end\_station\_name)
 \end{center}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{select_trips_ex.PNG}
+    \includegraphics[width=.75\textwidth]{figures/select_trips_ex.PNG}
     \caption{Example: Start Time, Stop Time, Start Station, and End Station are the columns displayed}
     \label{fig:select_trips_ex}
 \end{figure}
@@ -183,9 +183,9 @@ The mutate function allows you to create new data columns by doing an operation 
 mutate(trips, time\_in\_min = tripduration \textbackslash 60)
 \end{center}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{mutate_trips_ex.png}
+    \includegraphics[width=.75\textwidth]{figures/mutate_trips_ex.png}
     \caption{Example: setting a new column time in minutes equal to the trip duration divided by 60 (since the trip duration is in seconds)}
     \label{fig:mutate_trips_ex}
 \end{figure}
@@ -200,9 +200,9 @@ The group\_by command allows you to keep track of groups within a data frame. Th
 trips\_by\_gender <- group\_by(trips, gender)
 \end{center}    
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{group_by_gender.png}
+    \includegraphics[width=.75\textwidth]{figures/group_by_gender.png}
     \caption{Example: In this example, we are grouping by gender and storing the values in a new data frame called trips\_by\_gender noticed the red circle. We have three groups 1 = male, 2 = female, 0 = unknown}
     \label{fig:group_by_gender}
 \end{figure}
@@ -221,9 +221,9 @@ See example below
 summarize(trips\_by\_gender, count = n(), mean\_duration = mean(tripduration) \textbackslash 60, sd\_duration = sd(tripduration) \textbackslash 60)
 \end{center}    
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{group_and_summarize.png}
+    \includegraphics[width=.75\textwidth]{figures/group_and_summarize.png}
     \caption{Example: Here we are looking for the count, mean, and standard deviation of trip duration by gender }
     \label{fig:group_and_summarize}
 \end{figure}
@@ -242,9 +242,9 @@ Lets take the example of calculating how many bikes are on the road at a given t
 trips \%\textgreater\% gather("variable", "value", starttime, stoptime) \%\textgreater\% arrange(value) \%\textgreater\% mutate(delta = ifelse(variable == "starttime", 1, -1))
 \end{center}    
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{gather_ex.png}
+    \includegraphics[width=.75\textwidth]{figures/gather_ex.png}
     \caption{Example: By "gathering" the stop and start time in one column we can see the order of sequential events, by arranging these times it allows us to calculate how many bikes are on the road via the mutate function}
     \label{fig:gather_ex}
 \end{figure}
@@ -267,9 +267,9 @@ Data visualization serves two main purposes. First it allows you to see data and
 A great example of why data visualization is important can be seen in Anscombeâ€™s quartet. As the name quartet implies, it is 4 data sets that share the same mean, variance, linear regression line, as well as other statistical measures as seen in the figure below.
 \end{flushleft}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{Anscombes_quartet.png}
+    \includegraphics[width=.75\textwidth]{figures/Anscombes_quartet.png}
     \caption{Example: Anscombe's quartet}
     \label{fig:Anscombes}
 \end{figure}
@@ -278,9 +278,9 @@ A great example of why data visualization is important can be seen in Anscombeâ€
 When you look at each of these different data sets plotted out however, the story looks much different.
 \end{flushleft}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{Anscombes_quartet_plotted.png}
+    \includegraphics[width=.75\textwidth]{figures/Anscombes_quartet_plotted.png}
     \caption{Example: Anscombe's quartet plotted}
     \label{fig:Anscombes_plotted}
 \end{figure}
@@ -306,24 +306,24 @@ In his paper entitled \textit{Automating the Design of Graphical Presentations o
 \begin{flushleft}
 He also broke down how we as humans perceive data, in terms of how accurately we can decipher different representations.
 \end{flushleft}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.55\textwidth]{data_representation.png}
+    \includegraphics[width=.55\textwidth]{figures/data_representation.png}
     \caption{Example: According toe Mackinlay, the arrow on the left indicates from easiest to understand on top to hardest to understand on bottom how accurate humans are at deciphering information from graphical representation}
     \label{fig:data_representation}
 \end{figure}
 \begin{flushleft}
 Mackinlay further delved into the human readability of plots and data as he looked at the strokes for different data types. where Quantitative: numerical values in a range (e.g., height) Ordinal: categories with natural ordering (e.g., day of week) Nominal: categories with no natural ordering (e.g., gender) this can be seen in both figure \ref{fig:data_types_1} and figure \ref{fig:data_types_2}
 \end{flushleft}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{data_types_1.png}
+    \includegraphics[width=.75\textwidth]{figures/data_types_1.png}
     \caption{Analysis of the area task. The top case shoes that area is moderately effective for encoding quantitative information. The middle case shoes that is it possible to encode ordinal information as long as the step size between areas is large enough so that the values are not confused. the bottom case shows that it is possible to encode nominal information, but people may perceive an ordinal meaning.}
     \label{fig:data_types_1}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{data_types_2.png}
+    \includegraphics[width=.75\textwidth]{figures/data_types_2.png}
     \caption{Ranking of perceptual tasks. The task shown in the gray boxes are not relevant to these types of data.}
     \label{fig:data_types_2}
 \end{figure}
@@ -336,18 +336,18 @@ In the actual implementation of data visualization in R we are going to be using
 \begin{flushleft}
 First off lets take a look at the grammer structure of how to write ggplot2 code.
 \end{flushleft}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{ggplot2_grammar.png}
+    \includegraphics[width=.75\textwidth]{figures/ggplot2_grammar.png}
     \caption{An overview of the grammatical structure of how to program a ggplot visualization}
     \label{fig:ggplot2_grammar}
 \end{figure}
 \begin{flushleft}
 As with any type of work, its good to maintain a consistent work flow, in figure \ref{fig:ggplot_workflow} below is a good work flow to follow when using ggplot 
 \end{flushleft}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.75\textwidth]{ggplot_workflow.png}
+    \includegraphics[width=.75\textwidth]{figures/ggplot_workflow.png}
     \caption{ggplot work flow}
     \label{fig:ggplot_workflow}
 \end{figure}
@@ -356,7 +356,7 @@ Finally lest dive into an example of how to use ggplot to plot the health and we
 \end{flushleft}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.75\textwidth]{health_and_wealth.png}
+    \includegraphics[width=.75\textwidth]{figures/health_and_wealth.png}
     \caption{Plot and code necessary to build plot of the health and wealth of different countries over time.}
     \label{fig:health_and_wealth}
 \end{figure}

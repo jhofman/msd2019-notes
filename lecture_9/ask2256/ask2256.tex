@@ -42,13 +42,11 @@ $$p(y | x) = \frac{p(x | y) p(y)}{p(x)},$$
 
 which is \textbf{Bayes' Theorem}.
 
-\begin{theorem}
 \textbf{Bayes' Theorem} states 
 
 $$p(y | x) = \frac{p(x | y) p(y)}{p(x)},$$
 
 where $p(x) = \sum_{y \in \Omega y} p(x | y) p(y)$ is the normalization constant. 
-\end{theorem}
 
 There is a truth and then there is an indicator (positive or negative)
 
@@ -64,11 +62,11 @@ Note: we care about how often does the word occurs overall, not just how many do
 
 We can also use shell to do this by looking at released Enron employee emails to build our script, which does everything from get the data to build the classifier. 
 
-$$\includegraphics[scale=0.25]{enronsh.png}$$
+\includegraphics[scale=0.25]{ask2256/figures/enronsh.png}
 
 Let's say we want to know how often the word 'money' appears, we can use grep. We get multiple responses per files, we just want to count the matching files. So we retrieve a list of all the files and the use $\text{wc} - \text{l}$ to count them. 
 
-$$\includegraphics[scale=0.25]{enronsh2.png}$$
+\includegraphics[scale=0.25]{ask2256/figures/enronsh2.png}
 
 Notice that the word ENRON does not appear in the spam classifier. If the spammers just added this word, they would be able to get through. So do we keep it?
 
@@ -228,15 +226,15 @@ Let us start with some coding. Going back to our model idea, let us think of eac
 
 We can fit a \textbf{Naive Bayes} classifier in R. This gives us the number of words, the class, and what type of character we're dealing with. R contains native Naive Bayes functions, as follows:
 
-$$\includegraphics[scale=0.40]{naivebayes.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/naivebayes.png}
 
 Then we construct the confusion matrix. The confusion matrix gives a summary of the classifiers performance, with the actual label determining the row, ad the predicted label giving the column. Here is how we do it in R:
 
-$$\includegraphics[scale=0.40]{confusion.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/confusion.png}
 
 which gives us the following table:
 
-$$\includegraphics[scale=0.40]{confusionmatrix.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/confusionmatrix.png}
 
 When we predict and it is spam, we get a \textbf{True Positive}. If something is predicted as spam and actually not spam, this is a \textbf{False Positive} (\textbf{Type I Error}). If something is predicted as not spam and ends up being spam, we get a \textbf{False Negative} (\textbf{Type II Error}). If something is predicted as not spam and ends up not being spam actually, it is a \textbf{True Negative}. This is gives us the concept of \textbf{accuracy}
 
@@ -252,11 +250,11 @@ The false positive rate is the fraction of legitimate email that is predicted to
 
 There are packages built into R that let us calculate all of these rates. The biggest problem with the Native Bayes classifier is overconfidence. But maybe it's not? Maybe everything in the right curve is actually spam in this plot:
 
-$$\includegraphics[scale=0.40]{overconfident.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/overconfident.png}
 
 Let's do this on a fractional basis. Then we get the below plot
 
-$$\includegraphics[scale=0.40]{fractions_plot.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/fractions_plot.png}
 
 Of the things we were certain were spam, only $75\%$ of them turned out to be spam, of the things that we were certain were not spam, about $5\%$ turned out to not be spam. But this plot does not look very good. 
 
@@ -264,12 +262,12 @@ We can fit a linear regression model by taking the data and saying spam is a fun
 
 Next, we fit a logistic regression model using the following code. 
 
-$$\includegraphics[scale=0.40]{glm_code.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/glm_code.png}
 
 which yields the following results
 
-$$\includegraphics[scale=0.40]{glm_results.png}$$
+\includegraphics[scale=0.40]{ask2256/figures/glm_results.png}
 
 Coefficients greater than $0$ indicate spam. Coefficients less than $0$ indicate ham. When we compute all the summary stats, we notice that the False Positive Rate has been greatly reduced from approximately $40\%$ to $5\%$! Now $5\%$ of regular emails end up in the spam box. This is much better! 
 
-\end{document}
+

@@ -3,29 +3,15 @@
 %----------------------------------------
 \documentclass{article}
 
-% set up packages
+% set up packages (you shouldn't need to touch this)
 \usepackage{graphicx}  % required to insert images
+\usepackage{listings}
 \usepackage{hyperref}  % for hyperlinks
+\usepackage{float}
 \usepackage[svgnames]{xcolor}  % to change hyperlink colors
+\graphicspath{ {img/} }
 \colorlet{linkcolour}{DarkBlue}
 \hypersetup{colorlinks=true, linkcolor=linkcolour, citecolor=linkcolour, urlcolor=linkcolour,}
-\usepackage{algpseudocode}
-\usepackage{amsmath}
-\usepackage{listings}
-\usepackage{subfigure}
-
-% magic to include figures/ subdirectories in graphicx search path
-% http://tex.stackexchange.com/a/172327
-\usepackage{subfiles}
-\makeatletter
-\let\org@subfile\subfile
-\renewcommand*{\subfile}[1]{%
-  \filename@parse{#1}% LaTeX's file name parser
-  \expandafter
-  \graphicspath\expandafter{\expandafter{\filename@area}}%
-  \org@subfile{#1}%
-}
-\makeatother
 
 % Margins
 \topmargin=-0.45in
@@ -38,28 +24,37 @@
 % use a sans serif font
 \renewcommand{\familydefault}{\sfdefault}
 
+%----------------------------------------
+% Step 1: Edit the lecture title
+%----------------------------------------
 \title{
-Lecture 11: Counting on Graphs \\  % Lecture title
+Lecture 1: Introduction / Overview \\  % Lecture title
 Modeling Social Data, Spring 2019 \\   % Course title
 Columbia University                    % School
 }
 
+%----------------------------------------
+% Step 2: Edit your name and the date
+%----------------------------------------
+\author{Alex Kong}                     % Scribe's name
 \date{April 12, 2019}                % Lecture date
 
-
-%----------------------------------------
-% Main document
-%----------------------------------------
 \begin{document}
 
 \maketitle
 
-%----------------------------------------
-% Include each uni.tex as a subfile
-%----------------------------------------
 
-\pagebreak \newpage \noindent\Huge{Notes from alk2225} \normalsize \setcounter{section}{0} \subfile{alk2225/alk2225.tex}
-\pagebreak \newpage \noindent\Huge{Notes from du2147} \normalsize \setcounter{section}{0} \subfile{du2147/du2147.tex}
-
+%----------------------------------------
+% Step 3:
+% Rename uni.tex to match your uni,
+% edit the filename accordingly below,
+% and put your notes in this file
+%----------------------------------------
+\input{alk2225.tex}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
